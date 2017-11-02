@@ -73,6 +73,9 @@ class WPRocket_CLI extends WP_CLI_Command {
 	 * [--blog_id=<blog_id>]
 	 * : List blogs to purge cache files. Trumps --post_id & --permalink & lang.
 	 *
+	 * [--confirm]
+	 * : Automatic 'yes' to any confirmation
+	 *
 	 * ## EXAMPLES
 	 *
 	 *     wp rocket clean
@@ -219,8 +222,12 @@ class WPRocket_CLI extends WP_CLI_Command {
 			}
 
 		} else {
-
-			WP_CLI::confirm( 'Delete all cache files ?' );
+			
+			if(!empty($assoc_args['confirm']) && $assoc_args['confirm']) {
+				WP_CLI::line( 'Deleting all cache files.' );
+			} else {
+				WP_CLI::confirm( 'Delete all cache files ?' );
+			}
 
 			if( rocket_has_i18n() ) {
 				rocket_clean_domain_for_all_langs();
