@@ -1,5 +1,5 @@
 {
-    "name": "GeekPress/wp-rocket-cli",
+    "name": "zach-adams/wp-rocket-cli",
     "type": "wp-cli-package",
     "description": "Add a `wp rocket` command to support the WP Rocket plugin",
     "keywords": ["wp-cli", "rocket", "cache"],
@@ -7,6 +7,9 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "wp-cli/wp-cli": "^1.4.0"
     },
     "authors": [{
         "name": "WP Rocket Team",
